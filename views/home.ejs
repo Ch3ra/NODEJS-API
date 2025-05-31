@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar and Blog Example</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        .navbar {
+            background-color: #333;
+            padding: 1rem 0;
+        }
+
+        .navbar-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .navbar-logo {
+            color: #fff;
+            font-size: 1.5rem;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .navbar-menu {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar-menu li {
+            margin-left: 20px;
+        }
+
+        .navbar-menu a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1rem;
+            padding: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .navbar-menu a:hover {
+            color: #ddd;
+        }
+
+        .blog-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 0 20px;
+        }
+
+        .blog-card {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .blog-title {
+            font-size: 1.5rem;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .blog-subtitle {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .blog-description {
+            font-size: 1rem;
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .view-more-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #333;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .view-more-btn:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar Section -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="#" class="navbar-logo">CMS</a>
+            <ul class="navbar-menu">
+                <li><a href="/createBlog">Add Blog</a></li>
+                <li><a href="/login">Login</a></li>
+                <li><a href="/register">Register</a></li>
+              
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Blog Section -->
+    <section class="blog-container">
+      
+  <%   blogs.forEach((blog)=>{  %>
+        <div class="blog-card">
+            <h2 class="blog-title"><%- blog.title %></h2>
+              <h3 class="blog-subtitle"><%- blog.subTittle %></h3>
+              <p class="blog-description">
+                <%- blog.description %>
+              </p>
+              <a href="/description/<%- blog.id %>" class="view-more-btn">View More</a>
+          </div>
+          <%  })%> 
+
+        
+ 
+       
+       
+    </section>
+</body>
+</html>
